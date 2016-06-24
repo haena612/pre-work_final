@@ -12,14 +12,16 @@ class SettingViewController: UIViewController {
     
     
     @IBOutlet weak var Label: UILabel!
+    // Set a variable 
     
     var LabelText:String = ""
+    //Set a variable for service level 
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         Label.text = LabelText
-        // Do any additional setup after loading the view.
+        // Set the display value to show the service level input from the first view
     }
 
     override func didReceiveMemoryWarning() {

@@ -26,7 +26,7 @@ If I have more time in the future, I would like to include all the optional feat
 
 Here's a walkthrough of implemented user stories:
 
-http://imgur.com/LFz33Pg
+http://imgur.com/eMlH8VV
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 

@@ -20,6 +20,10 @@ class ViewController: UIViewController {
    
     @IBOutlet weak var TextField: UITextField!
     // customers can fill out this text field about the restaurent's service
+    @IBOutlet weak var serviceLevel: UILabel!
+    @IBOutlet weak var tipAmount: UILabel!
+    
+    let myDefault = NSUserDefaults.standardUserDefaults()
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -30,6 +34,20 @@ class ViewController: UIViewController {
         // set DestViewController (SettingViewController class) to be the input value from the textfield
     }
     
+    @IBAction func saveServiceLevel(sender: AnyObject) {
+        var tipPercentages = [18, 20, 25]
+        myDefault.setObject(tipPercentages[tipControl.selectedSegmentIndex], forKey: "tipAmount")
+        myDefault.setObject(TextField.text, forKey: "serviceLevel")
+        myDefault.synchronize()
+    }
+    
+    @IBAction func getTipSummary(sender: AnyObject) {
+       let tipSummaryTip = myDefault.stringForKey("tipAmount")
+        tipAmount.text = tipSummaryTip
+        let tipSummarySerivce = myDefault.stringForKey("serviceLevel")
+        serviceLevel.text = tipSummarySerivce
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,5 +92,24 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        print("view will appear")
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        print("view did appear")
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("view will disappear")
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("view did disappear")
+    }
 }
 
